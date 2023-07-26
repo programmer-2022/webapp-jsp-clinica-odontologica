@@ -5,7 +5,6 @@ import java.util.List;
 
 public class Odontologo extends Persona {
     
-    private int idOdontologo;
     private String especialidad;
     private List<Turno> listaTurnos;
     private Usuario usuario;
@@ -13,23 +12,14 @@ public class Odontologo extends Persona {
 
     public Odontologo() {  }
 
-    public Odontologo(int idOdontologo, String especialidad, List<Turno> listaTurnos, Usuario usuario, Horario horario, String dni, String nombre, String apellido, String direccion, Date fechaNacimiento) {
+    public Odontologo(String especialidad, List<Turno> listaTurnos, Usuario usuario, Horario horario, String dni, String nombre, String apellido, String direccion, Date fechaNacimiento) {
         super(dni, nombre, apellido, direccion, fechaNacimiento);
-        this.idOdontologo = idOdontologo;
         this.especialidad = especialidad;
         this.listaTurnos = listaTurnos;
         this.usuario = usuario;
         this.horario = horario;
     }
-
-    public int getIdOdontologo() {
-        return idOdontologo;
-    }
-
-    public void setIdOdontologo(int idOdontologo) {
-        this.idOdontologo = idOdontologo;
-    }
-
+ 
     public String getEspecialidad() {
         return especialidad;
     }

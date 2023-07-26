@@ -5,7 +5,6 @@ import java.util.List;
 
 public class Paciente  extends Persona {
     
-    private int idPaciente;
     private boolean tieneOS;
     private String tipoSangre;
     private Responsable responsable;
@@ -13,21 +12,12 @@ public class Paciente  extends Persona {
 
     public Paciente() { }
 
-    public Paciente(int idPaciente, boolean tieneOS, String tipoSangre, Responsable responsable, List<Turno> listaTurnos, String dni, String nombre, String apellido, String direccion, Date fechaNacimiento) {
+    public Paciente(boolean tieneOS, String tipoSangre, Responsable responsable, List<Turno> listaTurnos, String dni, String nombre, String apellido, String direccion, Date fechaNacimiento) {
         super(dni, nombre, apellido, direccion, fechaNacimiento);
-        this.idPaciente = idPaciente;
         this.tieneOS = tieneOS;
         this.tipoSangre = tipoSangre;
         this.responsable = responsable;
         this.listaTurnos = listaTurnos;
-    }
-
-    public int getIdPaciente() {
-        return idPaciente;
-    }
-
-    public void setIdPaciente(int idPaciente) {
-        this.idPaciente = idPaciente;
     }
 
     public boolean isTieneOS() {

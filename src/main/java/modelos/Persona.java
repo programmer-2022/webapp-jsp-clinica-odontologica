@@ -1,10 +1,15 @@
 package modelos;
 
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Persona {
     
-     private String dni;
+    private String dni;
     private String nombre;
     private String apellido;
     private String direccion;
