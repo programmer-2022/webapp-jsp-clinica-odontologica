@@ -1,28 +1,52 @@
-package modelos;
+package logica;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class Persona {
+public class Persona implements Serializable {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     
     private String dni;
+    
     private String nombre;
+    
     private String apellido;
+    
     private String direccion;
+    
+    @Temporal(TemporalType.DATE)
     private Date fechaNacimiento;
 
     public Persona() {  }
 
-    public Persona(String dni, String nombre, String apellido, String direccion, Date fechaNacimiento) {
+    public Persona(int id, String dni, String nombre, String apellido, String direccion, Date fechaNacimiento) {
+        this.id = id;
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
         this.direccion = direccion;
         this.fechaNacimiento = fechaNacimiento;
+    }   
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getDni() {
