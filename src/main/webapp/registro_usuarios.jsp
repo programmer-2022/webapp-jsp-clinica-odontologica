@@ -29,7 +29,7 @@
         </div>
         <div class="col-sm-6">
             <select id="rol" name="rol" class="form-control">
-                <option value="none">- Seleccione -</option>
+                <option value="" selected disabled hidden>- Seleccione Rol -</option>
                 <option value="operador">Operador</option>
                 <option value="administrador">Administrador</option>                        
             </select>
