@@ -12,7 +12,6 @@ import javax.servlet.http.HttpSession;
 import logica.ControladorLogica;
 import logica.Usuario;
 
-
 @WebServlet(name = "SvUsuarios", urlPatterns = {"/SvUsuarios"})
 public class SvUsuarios extends HttpServlet {
     
@@ -26,7 +25,7 @@ public class SvUsuarios extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
          
-        List<Usuario> listaUsuarios = new ArrayList<Usuario>();
+        List<Usuario> listaUsuarios = new ArrayList<>();
         listaUsuarios = ctrlLogica.obtenerUsuarios();
         
         HttpSession sesion = request.getSession();
