@@ -27,10 +27,4 @@
             <input type="date" class="form-control form-control-user" id="fecha_nacimiento"
                 placeholder="Fecha Nacimiento">
         </div>
-    </div>
-     
-    <div class="container w-25 mt-5">
-         <a href="login.html" class="btn btn-primary btn-user btn-block">
-        Guardar
-        </a>
-    </div>  
+    </div>   
