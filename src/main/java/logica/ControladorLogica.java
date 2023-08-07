@@ -18,4 +18,16 @@ public class ControladorLogica {
     public List<Usuario> obtenerUsuarios() {
         return controladoraPersistencia.obtenerUsuarios();
     }
+    
+    public Usuario obtenerUsuarioxId(int id) {
+        return controladoraPersistencia.obtenerUsuarioxId(id);
+    }
+    
+    public void eliminarUsuario(int id) {
+        controladoraPersistencia.eliminarUsuario(id);
+    }
+    
+    public void editarUsuario(Usuario usuario) {
+        controladoraPersistencia.editarUsuario(usuario);
+    }
 }

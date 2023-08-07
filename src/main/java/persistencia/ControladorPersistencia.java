@@ -1,36 +1,59 @@
 package persistencia;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import logica.Usuario;
+import persistencia.exceptions.NonexistentEntityException;
 
 public class ControladorPersistencia {
 
-    HorarioJpaController horarioJpaControllerJPA;
-    OdontologoJpaController odontologoJpaControllerJPA;
-    PacienteJpaController pacienteJpaControllerJPA;
-    PersonaJpaController personaJpaControllerJPA;
-    ResponsableJpaController responsableJpaControllerJPA;
-    SecretarioJpaController secretarioJpaControllerJPA;
-    TurnoJpaController turnoJpaControllerJPA;
-    UsuarioJpaController usuarioJpaControllerJPA;
+    HorarioJpaController horarioControllerJPA;
+    OdontologoJpaController odontologoControllerJPA;
+    PacienteJpaController pacienteControllerJPA;
+    PersonaJpaController personaControllerJPA;
+    ResponsableJpaController responsableControllerJPA;
+    SecretarioJpaController secretarioControllerJPA;
+    TurnoJpaController turnoControllerJPA;
+    UsuarioJpaController usuarioControllerJPA;
 
     public ControladorPersistencia() {
-        horarioJpaControllerJPA = new HorarioJpaController();
-        odontologoJpaControllerJPA = new OdontologoJpaController();
-        pacienteJpaControllerJPA = new PacienteJpaController();
-        personaJpaControllerJPA = new PersonaJpaController();
-        responsableJpaControllerJPA = new ResponsableJpaController();
-        secretarioJpaControllerJPA = new SecretarioJpaController();
-        turnoJpaControllerJPA = new TurnoJpaController();
-        usuarioJpaControllerJPA = new UsuarioJpaController();
+        horarioControllerJPA = new HorarioJpaController();
+        odontologoControllerJPA = new OdontologoJpaController();
+        pacienteControllerJPA = new PacienteJpaController();
+        personaControllerJPA = new PersonaJpaController();
+        responsableControllerJPA = new ResponsableJpaController();
+        secretarioControllerJPA = new SecretarioJpaController();
+        turnoControllerJPA = new TurnoJpaController();
+        usuarioControllerJPA = new UsuarioJpaController();
     }
 
     public void crearUsuario(Usuario usuario) {
-        usuarioJpaControllerJPA.create(usuario);
+        usuarioControllerJPA.create(usuario);
     }
 
     public List<Usuario> obtenerUsuarios() {
-        return usuarioJpaControllerJPA.findUsuarioEntities();
+        return usuarioControllerJPA.findUsuarioEntities();
+    }
+
+    public Usuario obtenerUsuarioxId(int id) {
+        return usuarioControllerJPA.findUsuario(id);
+    }
+
+    public void eliminarUsuario(int id) {
+        try {
+            usuarioControllerJPA.destroy(id);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(ControladorPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void editarUsuario(Usuario usuario) {
+        try {
+            usuarioControllerJPA.edit(usuario);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladorPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }
